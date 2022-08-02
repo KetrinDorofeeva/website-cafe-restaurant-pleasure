@@ -8,3 +8,5 @@ Programming languages:
 - JavaScript.
 
 Framework Yii2.
+
+Ссылка на разработанный программный продукт: f0635336.xsph.ru
