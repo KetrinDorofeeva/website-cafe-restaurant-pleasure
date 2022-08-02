@@ -1,4 +1,4 @@
-# Website-cafe-restaurant-Pleasure
+# website-cafe-restaurant-pleasure
 ## Graduation project
 Programming languages:
 - HTML;
