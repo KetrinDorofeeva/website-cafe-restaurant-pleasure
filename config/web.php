@@ -45,7 +45,7 @@
                     'class' => 'Swift_SmtpTransport',
                     'host' => 'smtp.yandex.ru',
                     'username' => 'multiveb@yandex.ru',
-                    'password' => 'Programm24',
+                    'password' => '',
                     'port' => '465',
                     'encryption' => 'ssl',
                 ],
