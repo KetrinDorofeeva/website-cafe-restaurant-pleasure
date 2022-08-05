@@ -2,11 +2,11 @@
 
 | Технологии разработки                                                                                             | Языки программирования | Фреймворк | База данных |
 | ----------------------------------------------------------------------------------------------------------------- |------------------| -----| -----|
-| ![HTML](https://img.shields.io/badge/-HTML-orange?style=for-the-badge&logo=HTML5&labelColor=FFF6E8)               | ![PHP](https://img.shields.io/badge/-PHP-777BB4?style=for-the-badge&logo=PHP&labelColor=F0F1FA&logoColor=777BB4)                                                                  | ![Yii](https://img.shields.io/badge/-Yii-blue?style=for-the-badge&logo=Framework7&labelColor=F8F8FF&logoColor=blue)       | ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?style=for-the-badge&logo=MySQL&labelColor=EFF8FF&logoColor=4479A1)                                           |
+| ![HTML](https://img.shields.io/badge/-HTML-orange?style=for-the-badge&logo=HTML5&labelColor=FFF6E8)               | ![PHP](https://img.shields.io/badge/-PHP-777BB4?style=for-the-badge&logo=PHP&labelColor=F0F1FA&logoColor=777BB4)                                                                | ![Yii](https://img.shields.io/badge/-Yii-blue?style=for-the-badge&logo=Framework7&labelColor=F8F8FF&logoColor=blue)       | ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?style=for-the-badge&logo=MySQL&labelColor=EFF8FF&logoColor=4479A1)                                           |
 | ![CSS](https://img.shields.io/badge/-CSS-1572B5?style=for-the-badge&logo=CSS3&labelColor=EAEBFE&logoColor=1572B5) | ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&labelColor=FFFDF1&logoColor=F7DF1E)                           |
 
 ## Оглавление
-- [Техническое задание] [1]
+- <a href = "#technical-specification">Техническое задание</a>
 - Поля и их заполнение 
 - Блок-схемы
 - Диаграммы
@@ -37,7 +37,31 @@
   - Реализация админ-панели
   - Размещение сайта на хостинге
     
-## [1]: Техническое задание
-[1]: http://slashdot.org
+## <p id = "technical-specification">Техническое задание</p>
+На сайте реализовано семь разделов: «Главная страница», «Акции», «Меню», «Забронировать столик», «Отзывы», «Контакты» и «Корзина»; и формы регистрации и авторизации пользователей.  
+Пользователь может относится к одной из трех представленных ролей: администратор, пользователь и гость.  
+Для администраторов доступна админ-панель, включающая в себя семь разделов: «Категории меню», «Подкатегории меню (напитки)», «Товары», «Заказчики и их заказы», «Забронированные столики», «Акции» и «Отзывы».
+1.	Общие возможности:
+    - отправка сообщений через форму обратной связи;
+    - добавление товара в корзину;
+    - увеличение и уменьшение количества товаров (другими словами – счетчик товаров);
+    - удаление товаров из корзины;
+    - оформление заказа;
+    - бронирование столика.
+2.	Возможности пользователя (уникальные):
+    - авторизация;
+    - добавление отзывов;
+    - удаление своих отзывов;
+    - просмотр своих заказов и забронированных столиков.
+3.	Возможности администратора (уникальные):
+    - авторизация;
+    - добавление, редактирование, удаление категорий меню;
+    - добавление, редактирование, удаление подкатегорий меню (напитки);
+    - добавление, редактирование, удаление товаров;
+    - управление заказами товаров (удаление заказчиков, назначение статуса заказа, удаление заказов);
+    - управление бронированием (удаление клиентов, изменение статуса клиента);
+    - добавление, редактирование, удаление акций;
+    - удаление всех отзывов.
+
     
 Ссылка на разработанный программный продукт: [f0635336.xsph.ru](http://f0635336.xsph.ru/)
