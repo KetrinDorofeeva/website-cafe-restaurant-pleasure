@@ -6,7 +6,7 @@
 | ![CSS](https://img.shields.io/badge/-CSS-1572B5?style=for-the-badge&logo=CSS3&labelColor=EAEBFE&logoColor=1572B5) | ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&labelColor=FFFDF1&logoColor=F7DF1E)                           |
 
 ## Оглавление
-- [Техническое задание](id)
+- [Техническое задание] [1]
 - Поля и их заполнение 
 - Блок-схемы
 - Диаграммы
@@ -37,6 +37,7 @@
   - Реализация админ-панели
   - Размещение сайта на хостинге
     
-## Техническое задание
+## [1]: Техническое задание
+[1]: http://slashdot.org
     
 Ссылка на разработанный программный продукт: [f0635336.xsph.ru](http://f0635336.xsph.ru/)
