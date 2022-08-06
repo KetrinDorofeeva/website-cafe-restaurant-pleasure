@@ -48,8 +48,8 @@ ________________________________________________________________________________
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
 
 ## <p id = "database-design">База данных</p>
-![База данных](https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/database-design.png)
-
+![ER-диаграмма базы данных](https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/database-design.png)
+![Таблицы и поля базы данных](https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/database-tables-and-fields.png)  
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
     
 Ссылка на разработанный программный продукт: [f0635336.xsph.ru](http://f0635336.xsph.ru/)
