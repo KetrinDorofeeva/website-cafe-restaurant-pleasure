@@ -79,7 +79,10 @@ ________________________________________________________________________________
 ### <p id = "installing-yii2-framework">Установка Yii2-фреймворка</p>
 1. **Установка при помощи Composer**  
 **Composer** - это пакетный менеджер уровня приложений для языка программирования PHP, который предоставляет средства по управлению зависимостями в PHP-приложении.  
-Для того, чтобы установить Yii2-фреймворк, нужно открыть консоль в OpenServer и ввести соответствующую команду:
+Для того, чтобы установить Yii2-фреймворк, нужно открыть консоль в OpenServer:
+<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/console.png" width="250" />
+
+И ввести соответствующую команду:
 ```php
   cd domains
   composer create-project yiisoft/yii2-app-basic basic
