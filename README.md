@@ -5,13 +5,10 @@
 | ![HTML](https://img.shields.io/badge/-HTML-orange?style=for-the-badge&logo=HTML5&labelColor=FFF6E8)               | ![PHP](https://img.shields.io/badge/-PHP-777BB4?style=for-the-badge&logo=PHP&labelColor=F0F1FA&logoColor=777BB4)                                                                | ![Yii](https://img.shields.io/badge/-Yii-blue?style=for-the-badge&logo=Framework7&labelColor=F8F8FF&logoColor=blue)       | ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?style=for-the-badge&logo=MySQL&labelColor=EFF8FF&logoColor=4479A1)                                           |
 | ![CSS](https://img.shields.io/badge/-CSS-1572B5?style=for-the-badge&logo=CSS3&labelColor=EAEBFE&logoColor=1572B5) | ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&labelColor=FFFDF1&logoColor=F7DF1E)                           |
 
-## Оглавление
+## <p id = "table-of-contents">Оглавление</p>
 - <a href = "#technical-specification">Техническое задание</a>
 - <a href = "#block-diagram">Блок-схема</a>
-- Диаграммы
-  - IDEF0
-  - UML
-- Проектирование базы данных  
+- <a href = "#database-design">База данных</a>
 - Установка и настройка Yii фреймворка
 - Страницы сайта
   - Реализация главной страницы
@@ -44,8 +41,12 @@ ________________________________________________________________________________
 На сайте реализовано семь разделов: «Главная страница», «Акции», «Меню», «Забронировать столик», «Отзывы», «Контакты» и «Корзина»; и формы регистрации и авторизации пользователей.  
 Для администраторов доступна админ-панель, включающая в себя семь разделов: «Категории меню», «Подкатегории меню (напитки)», «Товары», «Заказчики и их заказы», «Забронированные столики», «Акции» и «Отзывы».
 ![Роли и возможности](https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/roles_and_opportunities.png)
-
+:bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
 
 ## <p id = "block-diagram">Блок-схема</p>
+![Блок-схема](https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/block-diagram.png)
+:bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
+
+## <p id = "database-design">База данных</p>
     
 Ссылка на разработанный программный продукт: [f0635336.xsph.ru](http://f0635336.xsph.ru/)
