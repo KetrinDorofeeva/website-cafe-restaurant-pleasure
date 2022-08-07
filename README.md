@@ -185,7 +185,11 @@ ________________________________________________________________________________
 </table>
 
 
-<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/interior.png" alt = "Главная страница" />
+<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/interior.png" alt = "Интерьер" />
+
+<video controls>
+  <source src = "https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/mobile-version-main-page.mp4" type = "video/mp4">
+</video>
 
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
     
