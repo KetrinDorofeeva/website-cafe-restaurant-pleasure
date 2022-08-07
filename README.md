@@ -262,10 +262,10 @@ https://user-images.githubusercontent.com/93386515/183287813-1ed216e0-fae1-40f5-
   {
       if ($this->validate()) {
           Yii::$app->mailer->compose()
-              ->setTo('multiveb@yandex.ru') //Кому отправить
-              ->setFrom(['multiveb@yandex.ru' => $this->name]) //От кого
+              ->setTo('***@yandex.ru') //Кому отправить
+              ->setFrom(['***@yandex.ru' => $this->name]) //От кого
               ->setSubject($this->subject) //Тема сообщения
-              ->setHtmlBody($this->body. '<br><br>' . $this->email) //Текст сообщения
+              ->setHtmlBody($this->body. '<br><br>' . $this->email) //Текст сообщения и отправивший
               ->send(); //Отправка сообщения
 
           return true;
@@ -274,13 +274,33 @@ https://user-images.githubusercontent.com/93386515/183287813-1ed216e0-fae1-40f5-
       return false;
   }
 ```
+Код для отправки введенных данных на почту, прописанный в вашем контроллере:
+```php
+  public function actionContact() //actionContact() - название контроллера
+  {
+    $model = new ContactForm(); //ContactForm() - название модели
+    if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+      if (true) {
+        Yii::$app->session->setFlash('success', "Благодарим Вас за обращение к нам. Мы ответим вам как можно скорее.");
+        
+        return $this->refresh();
+      } else {
+        Yii::$app->session->setFlash('error', 'Внимание! Ваше письмо по каким-то причинам не отправлено! 
+          Вы можите связаться с нами по телефону 8 (981) 942-53-40 или написать нам на почту cafe_restaurant_pleasure@email.com');
+      }
+    } 
+
+    return $this->render('contact', ['model' => $model]); //contact - название вьюшки
+  }
+```
 После того, как клиент ввел корректные данные и нажал на кнопку «ОТПРАВИТЬ», всплывает Flash-сообщение «Благодарим Вас за обращение к нам. Мы ответим вам как можно скорее.». Все данные, которые ввел пользователь, отправляются на почту администратора.  
 Форма обратной связи с корректно заполненными полями:
 <img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/correct-feedback-form.png" alt = "Корректо заполненная форма обратной связи" />
 Оповещение об успешной отправке письма:
 <img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/success-sending-feedback-form.png" alt = "Успешная отправка формы обратной связи" />
 Отправленное письмо:
-<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/sent-email.png" alt = "Отправленное письмо" />
+
+<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/sent-email.jpg" width = "250" alt = "Отправленное письмо" />
 
 
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
