@@ -277,8 +277,8 @@ https://user-images.githubusercontent.com/93386515/183287813-1ed216e0-fae1-40f5-
 После того, как клиент ввел корректные данные и нажал на кнопку «ОТПРАВИТЬ», всплывает Flash-сообщение «Благодарим Вас за обращение к нам. Мы ответим вам как можно скорее.». Все данные, которые ввел пользователь, отправляются на почту администратора.  
 Форма обратной связи с корректно заполненными полями:
 <img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/correct-feedback-form.png" alt = "Корректо заполненная форма обратной связи" />
-
 Оповещение об успешной отправке письма:
+<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/success-sending-feedback-form.png" alt = "Успешная отправка формы обратной связи" />
 
 
 Отправленное письмо:
