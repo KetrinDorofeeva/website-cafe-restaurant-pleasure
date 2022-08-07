@@ -159,9 +159,12 @@ ________________________________________________________________________________
 1)	Лендинг: пользователь видит его сразу при входе на сайт.  
 Лендинг (целевая страница) – веб-страница, которая используется для усиления эффективности рекламы, увеличения аудитории. Целевая страница обычно содержит информацию о товаре или услуге. Призывает выполнить целевое действие: оставить контакты, подписаться на рассылку, оформить заявку.
 
-<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/main-page.png" width="250" alt = "Главная страница" />
+<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/main-page.png" alt = "Главная страница" />
 
 2)	«О нас»: краткое описание кафе-ресторана «Pleasure».
+
+<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/about-us.png" alt = "О нас" />
+
 3)	«Интерьер»: показ интерьера при помощи слайдера.
 
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
