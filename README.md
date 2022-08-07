@@ -32,7 +32,7 @@
   - <a href = "#friendly-url">Настройка ЧПУ</a>
 - <a href = "#implementation-software-product">Реализация программного продукта</a>
   - <a href = "#main-page">Главная страница</a>
-  - Реализация контактов и формы обратной связи
+  - <a href = "#contacts-and-feedback-form">Контакты и форма обратной связи</a>
     - Поля и их заполнение
     - Верстка контактов и формы обратной связи
     - Мобильная версия контактов и формы обратной связи
@@ -184,13 +184,10 @@ ________________________________________________________________________________
   </tr>
 </table>
 
-
-<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/interior.png" alt = "Интерьер" />
-
-<video controls>
-  <source src = "https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/mobile-version-main-page.mp4" type = "video/mp4">
-</video>
+https://user-images.githubusercontent.com/93386515/183287813-1ed216e0-fae1-40f5-b9d4-6ddb47910e9d.mp4
 
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
+
+### <p id = "contacts-and-feedback-form">Контакты и форма обратной связи</p>
     
 Ссылка на разработанный программный продукт: [f0635336.xsph.ru](http://f0635336.xsph.ru/)
