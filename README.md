@@ -279,9 +279,8 @@ https://user-images.githubusercontent.com/93386515/183287813-1ed216e0-fae1-40f5-
 <img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/correct-feedback-form.png" alt = "Корректо заполненная форма обратной связи" />
 Оповещение об успешной отправке письма:
 <img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/success-sending-feedback-form.png" alt = "Успешная отправка формы обратной связи" />
-
-
 Отправленное письмо:
+<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/sent-email.png" alt = "Отправленное письмо" />
 
 
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
