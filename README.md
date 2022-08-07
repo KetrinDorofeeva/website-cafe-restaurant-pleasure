@@ -191,5 +191,16 @@ https://user-images.githubusercontent.com/93386515/183287813-1ed216e0-fae1-40f5-
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
 
 ### <p id = "contacts-and-feedback-form">Контакты и форма обратной связи</p>
+В начале раздела «Контакты» указаны адрес, телефон, e-mail и режим работы кафе-ресторана, а также была добавлена Google карта.  
+Стоит разобрать добавление Google карты на сайт поподробнее:
+1)	Открыть сайт [Google Maps](https://www.google.ru/maps/);
+2)	Ввести компанию на картах, нажать на «Поделиться»;
+3)	Нажать «Встраивание карт» и выбрать размер из предложенных или выбрать «Другой размер» и указать свои параметры;
+4)	Скопировать получившийся HTML-код и вставить его в код своего сайта в то место, где будет размещена карта.
+
+<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/contacts.png" alt = "Контакты" />
+
+
+:bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
     
 Ссылка на разработанный программный продукт: [f0635336.xsph.ru](http://f0635336.xsph.ru/)
