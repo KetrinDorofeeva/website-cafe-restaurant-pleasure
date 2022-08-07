@@ -33,9 +33,8 @@
 - <a href = "#implementation-software-product">Реализация программного продукта</a>
   - <a href = "#main-page">Главная страница</a>
   - <a href = "#contacts-and-feedback-form">Контакты и форма обратной связи</a>
-    - Поля и их заполнение
-    - Верстка контактов и формы обратной связи
-    - Мобильная версия контактов и формы обратной связи
+    - <a href = "#fields-and-their-filling">Поля и их заполнение</a>
+    - <a href = "#layout-feedback-form">Верстка формы обратной связи</a>
   - Реализация страницы товаров
     - Верстка страницы товаров
     - Мобильная версия страницы товаров
@@ -199,6 +198,90 @@ https://user-images.githubusercontent.com/93386515/183287813-1ed216e0-fae1-40f5-
 4)	Скопировать получившийся HTML-код и вставить его в код своего сайта в то место, где будет размещена карта.
 
 <img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/contacts.png" alt = "Контакты" />
+
+:bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
+
+#### <p id = "fields-and-their-filling">Поля и их заполнение</p>
+<table>
+  <tr>
+    <td><b>Поля</b></td>
+    <td><b>Обязательность заполнения</b></td>
+    <td><b>Правила заполнения</b></td>
+  </tr>
+  <tr>
+    <td>Ваше имя</td>
+    <td>Да</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Ваш E-mail</td>
+    <td>Да</td>
+    <td>Формат: ***@yandex.ru<br>Пример: multiveb@yandex.ru</td>
+  </tr>
+  <tr>
+    <td>Тема письма</td>
+    <td>Да</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Сообщение</td>
+    <td>Да</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Проверочные символы</td>
+    <td>Да</td>
+    <td>Пример: zugioo</td>
+  </tr>
+</table>
+
+:bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
+
+#### <p id = "layout-feedback-form">Верстка формы обратной связи</p>
+Отправка сообщения на почту происходит через Simple Mail Transfer Protocol (SMTP) с помощью yandex. В файле настроек ```/config/web.php``` и добавляется настройка отправки почты в элемент массива ```components```:
+```php
+  'components' => [
+    'mailer' => [
+      'class' => 'yii\swiftmailer\Mailer',
+      'useFileTransport' => false,
+      'transport' => [
+        'class' => 'Swift_SmtpTransport',
+        'host' => 'smtp.yandex.ru',
+        'username' => 'ваша_почта@yandex.ru',
+        'password' => 'ваш_пароль',
+        'port' => '465',
+        'encryption' => 'ssl',
+      ],
+    ],
+    ...
+  ],
+```
+Код для отправки введенных данных на почту, прописанный в вашей модели:
+```php
+  public function contact($email)
+  {
+      if ($this->validate()) {
+          Yii::$app->mailer->compose()
+              ->setTo('multiveb@yandex.ru') //Кому отправить
+              ->setFrom(['multiveb@yandex.ru' => $this->name]) //От кого
+              ->setSubject($this->subject) //Тема сообщения
+              ->setHtmlBody($this->body. '<br><br>' . $this->email) //Текст сообщения
+              ->send(); //Отправка сообщения
+
+          return true;
+      }
+
+      return false;
+  }
+```
+После того, как клиент ввел корректные данные и нажал на кнопку «ОТПРАВИТЬ», всплывает Flash-сообщение «Благодарим Вас за обращение к нам. Мы ответим вам как можно скорее.». Все данные, которые ввел пользователь, отправляются на почту администратора.  
+Форма обратной связи с корректно заполненными полями:
+<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/correct-feedback-form.png" alt = "Корректо заполненная форма обратной связи" />
+
+Оповещение об успешной отправке письма:
+
+
+Отправленное письмо:
 
 
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
