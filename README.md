@@ -184,6 +184,8 @@ ________________________________________________________________________________
   </tr>
 </table>
 
+<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/interior.png" alt = "Интерьер" />
+
 https://user-images.githubusercontent.com/93386515/183287813-1ed216e0-fae1-40f5-b9d4-6ddb47910e9d.mp4
 
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
