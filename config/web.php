@@ -13,7 +13,7 @@
         ],
         'components' => [
             'request' => [
-                'cookieValidationKey' => 'yAJLV3iYzSjfnkw5YySzXTZ0qcHH9cOn',
+                'cookieValidationKey' => 'yGGV854459988bjbbjbjAGFDSFjjhgh7667587FCCGGBfSEE',
                 'baseUrl' => '',
             ],
             'cart' => [
