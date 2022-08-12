@@ -673,6 +673,10 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
 }
 ```
 
+<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/authorization.png" alt = "Авторизация" />
+
+https://user-images.githubusercontent.com/93386515/184353387-4c1823c7-7914-4bd0-9e1f-ad70175bd229.mp4
+
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
     
 Ссылка на разработанный программный продукт: [f0635336.xsph.ru](http://f0635336.xsph.ru/)
