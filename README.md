@@ -37,10 +37,10 @@
     - <a href = "#layout-feedback-form">Верстка формы обратной связи</a>
   - <a href = "#registration">Регистрация</a>
     - <a href = "#fields-and-their-filling-registration">Поля и их заполнение</a>
-    - <a href = "#layout-registration">Верстка формы регистрациии</a>
-  - Авторизация
-    - Поля и их заполнение
-    - Верстка формы авторизации
+    - <a href = "#layout-registration">Верстка формы регистрации</a>
+  - <a href = "#authorization">Авторизация</a>
+    - <a href = "#fields-and-their-filling-authorization">Поля и их заполнение</a>
+    - <a href = "#layout-authorization">Верстка формы авторизации</a>
   - Меню
   - Подменю
   - Товары
@@ -94,10 +94,10 @@ ________________________________________________________________________________
 
 И ввести соответствующую команду:
 ```php
-  cd domains
-  composer create-project yiisoft/yii2-app-basic basic
+cd domains
+composer create-project yiisoft/yii2-app-basic basic
   
-  //composer create-project yiisoft/yii2-app-версия придуманное_название_проекта
+//composer create-project yiisoft/yii2-app-версия придуманное_название_проекта
 ```
 Эта команда устанавливает последнюю стабильную версию Yii в директорию ```basic```. Если хотите, можете выбрать другое имя директории.
 
@@ -109,8 +109,8 @@ ________________________________________________________________________________
     - Распаковать архив;
     - Зайти в папку ```config/web.php``` добавьте секретный ключ в значение cookieValidationKey (при установке через Composer это происходит автоматически):
 ```php
-  // !!! Напишите секретный ключ в поле (если оно пустое) - это требуется для проверки файлов cookie
-  'cookieValidationKey' => 'Введите_здесь_секретный_ключ_(произвольный_набор_символов)',
+// !!! Напишите секретный ключ в поле (если оно пустое) - это требуется для проверки файлов cookie
+'cookieValidationKey' => 'Введите_здесь_секретный_ключ_(произвольный_набор_символов)',
 ```
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
 
@@ -120,46 +120,46 @@ ________________________________________________________________________________
 От папки ```web``` можно легко избавиться с помощью файлов ```.htaccess```.  
 ```.htaccess``` в корне приложения:
 ```php
-  RewriteEngine on
-  RewriteRule ^(.+)?$ /web/$1
+RewriteEngine on
+RewriteRule ^(.+)?$ /web/$1
 ```
 ```.htaccess``` в папке ```web```:
 ```php
-  RewriteBase /
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . index.php
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php
 ```
 Таким образом, папки ```web``` больше нет в адресной строке. Однако это еще не все. Для того, чтобы получить доступ к странице с формой, которая находится в действии ```actionIndex``` контроллера ```SiteController```, нужно набрать следующий адрес: «http://*название_проекта*/?r=site/index». Вместо такого адреса хотелось бы иметь возможность обратиться к данной странице по такому адресу: «http://*название_проекта*/site/index».  
 Для решения поставленной задачи необходимо обратиться к файлу ```/config/web.php``` и прописать в массив ```components``` компонента ```urlManager``` необходимый код:
 ```php
-  'urlManager' => [
-    'enablePrettyUrl' => true,
-    'showScriptName' => false,
-    'rules' => [
+'urlManager' => [
+  'enablePrettyUrl' => true,
+  'showScriptName' => false,
+  'rules' => [
       
-    ],
   ],
+],
 ```
 В элемент ```request``` массива ```components``` нужно добавить строчку ```'baseUrl' => ' '```:
 ```php
-  'components' => [
-    'request' => [
-      'cookieValidationKey' => 'произвольный_код',
-      'baseUrl' => '',
-    ],
-    ...
+'components' => [
+  'request' => [
+    'cookieValidationKey' => 'произвольный_код',
+    'baseUrl' => '',
   ],
+  ...
+],
 ```
 Для связи проекта с базой данных в файле ```/config/db.php``` прописываются ```dbname```, ```username``` и ```password```:
 ```php
-  return [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=название_базы_данных',
-    'username' => 'логин_от_PhpMyAdmin',
-    'password' => 'пароль_от_PhpMyAdmin',
-    'charset' => 'utf8',
-  ];
+return [
+  'class' => 'yii\db\Connection',
+  'dsn' => 'mysql:host=localhost;dbname=название_базы_данных',
+  'username' => 'логин_от_PhpMyAdmin',
+  'password' => 'пароль_от_PhpMyAdmin',
+  'charset' => 'utf8',
+];
 ```
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
 
@@ -253,58 +253,58 @@ https://user-images.githubusercontent.com/93386515/183287813-1ed216e0-fae1-40f5-
 #### <p id = "layout-feedback-form">Верстка формы обратной связи</p>
 Отправка сообщения на почту происходит через Simple Mail Transfer Protocol (SMTP) с помощью yandex. В файле настроек ```/config/web.php``` и добавляется настройка отправки почты в элемент массива ```components```:
 ```php
-  'components' => [
-    'mailer' => [
-      'class' => 'yii\swiftmailer\Mailer',
-      'useFileTransport' => false,
-      'transport' => [
-        'class' => 'Swift_SmtpTransport',
-        'host' => 'smtp.yandex.ru',
-        'username' => 'ваша_почта@yandex.ru',
-        'password' => 'ваш_пароль',
-        'port' => '465',
-        'encryption' => 'ssl',
-      ],
+'components' => [
+  'mailer' => [
+    'class' => 'yii\swiftmailer\Mailer',
+    'useFileTransport' => false,
+    'transport' => [
+      'class' => 'Swift_SmtpTransport',
+      'host' => 'smtp.yandex.ru',
+      'username' => 'ваша_почта@yandex.ru',
+      'password' => 'ваш_пароль',
+      'port' => '465',
+      'encryption' => 'ssl',
     ],
-    ...
   ],
+  ...
+],
 ```
 Код для отправки введенных данных на почту, прописанный в вашей модели:
 ```php
-  public function contact($email)
-  {
-      if ($this->validate()) {
-          Yii::$app->mailer->compose()
-              ->setTo('***@yandex.ru') //Кому отправить
-              ->setFrom(['***@yandex.ru' => $this->name]) //От кого
-              ->setSubject($this->subject) //Тема сообщения
-              ->setHtmlBody($this->body. '<br><br>' . $this->email) //Текст сообщения и отправивший
-              ->send(); //Отправка сообщения
+public function contact($email)
+{
+  if ($this->validate()) {
+    Yii::$app->mailer->compose()
+      ->setTo('***@yandex.ru') //Кому отправить
+      ->setFrom(['***@yandex.ru' => $this->name]) //От кого
+      ->setSubject($this->subject) //Тема сообщения
+      ->setHtmlBody($this->body. '<br><br>' . $this->email) //Текст сообщения и отправивший
+      ->send(); //Отправка сообщения
 
-          return true;
-      }
-
-      return false;
+      return true;
   }
+
+  return false;
+}
 ```
 Код для отправки введенных данных на почту, прописанный в вашем контроллере:
 ```php
-  public function actionContact() //actionContact() - название контроллера
-  {
-    $model = new ContactForm(); //ContactForm() - название модели
-    if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-      if (true) {
-        Yii::$app->session->setFlash('success', "Благодарим Вас за обращение к нам. Мы ответим вам как можно скорее.");
+public function actionContact() //actionContact() - название контроллера
+{
+  $model = new ContactForm(); //ContactForm() - название модели
+  if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+    if (true) {
+      Yii::$app->session->setFlash('success', "Благодарим Вас за обращение к нам. Мы ответим вам как можно скорее.");
         
-        return $this->refresh();
-      } else {
-        Yii::$app->session->setFlash('error', 'Внимание! Ваше письмо по каким-то причинам не отправлено! 
-          Вы можите связаться с нами по телефону 8 (981) 942-53-40 или написать нам на почту cafe_restaurant_pleasure@email.com');
-      }
-    } 
+      return $this->refresh();
+    } else {
+      Yii::$app->session->setFlash('error', 'Внимание! Ваше письмо по каким-то причинам не отправлено! 
+        Вы можите связаться с нами по телефону 8 (981) 942-53-40 или написать нам на почту cafe_restaurant_pleasure@email.com');
+    }
+  } 
 
-    return $this->render('contact', ['model' => $model]); //contact - название вьюшки
-  }
+  return $this->render('contact', ['model' => $model]); //contact - название вьюшки
+}
 ```
 После того, как клиент ввел корректные данные и нажал на кнопку «ОТПРАВИТЬ», всплывает Flash-сообщение «Благодарим Вас за обращение к нам. Мы ответим вам как можно скорее.». Все данные, которые ввел пользователь, отправляются на почту администратора.  
 Форма обратной связи с корректно заполненными полями:
@@ -396,54 +396,53 @@ https://user-images.githubusercontent.com/93386515/183302230-dbb81e5a-c8ea-4f36-
 </table>
 
 ```php
-  namespace app\models;
+namespace app\models;
 
-  use Yii;
-  use yii\base\Model;
-  use yii\db\ActiveRecord;
-  use app\models\User;
+use Yii;
+use yii\base\Model;
+use yii\db\ActiveRecord;
+use app\models\User;
 
-  class RegistrationForm extends ActiveRecord {
-    public static function tableName() {
-      return 'user';
-    }
-
-    public function attributeLabels() {
-        return [
-            'login' => 'Логин',
-            'password' => 'Пароль',
-            'confirm_password' => 'Повторите пароль',
-        ];
-    }
-
-    public $confirm_password;
-
-    public function rules() {
-        return [
-            [['login', 'password', 'confirm_password'], 'required'],
-            ['login', 'unique'],
-            ['password', 'match', 'pattern' => '/^\S*(?=\S{8,12})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/', 
-              'message' => 'Пароль от 8 до 12 символов должен содержать хотя бы одну большую букву, 
-                одну маленькую букву и одну цифру'],
-            ['confirm_password', 'compare', 'compareAttribute' => 'password', 'message' => 'Пароли не совпадают'],
-        ];
-    }
-
-    public function registration() {
-        if ($this->validate()) {
-            $this->password = md5($this->password);
-            $this->role = 2;
-
-            if ($this->save(false)) {
-                if (Yii::$app->user->login(User::findIdentity($this->id), 3600 * 24 * 30)) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
+class RegistrationForm extends ActiveRecord {
+  public static function tableName() {
+    return 'user';
   }
+
+  public function attributeLabels() {
+    return [
+      'login' => 'Логин',
+      'password' => 'Пароль',
+      'confirm_password' => 'Повторите пароль',
+    ];
+  }
+
+  public $confirm_password;
+
+  public function rules() {
+    return [
+      [['login', 'password', 'confirm_password'], 'required'],
+      ['login', 'unique'],
+      ['password', 'match', 'pattern' => '/^\S*(?=\S{8,12})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/', 
+        'message' => 'Пароль от 8 до 12 символов должен содержать хотя бы одну большую букву, одну маленькую букву и одну цифру'],
+      ['confirm_password', 'compare', 'compareAttribute' => 'password', 'message' => 'Пароли не совпадают'],
+    ];
+  }
+
+  public function registration() {
+    if ($this->validate()) {
+      $this->password = md5($this->password);
+      $this->role = 2;
+
+      if ($this->save(false)) {
+        if (Yii::$app->user->login(User::findIdentity($this->id), 3600 * 24 * 30)) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+}
 ```
 
 Далее в контроллере ``SiteController`` было реализовано действие ``actionRegistration``.  
@@ -453,16 +452,16 @@ https://user-images.githubusercontent.com/93386515/183302230-dbb81e5a-c8ea-4f36-
 Передача введенных и автоматически прописанных данных, а именно ``login, password, confirm_password, role`` происходит при помощи метода ``render``, куда первым параметром поступает строка – название представления и информация, передаваемая представлению.  
 В модели ``RegistrationForm`` прописана функция ``registration``, в которой проверяется валидность введенных данных при помощи метода ``$this->validate()``. Для безопасного хранения и использования хэшированных паролей в базе данных используется ``md5``. Если данных успешно прошли проверку на валидность, определяется ``id`` зарегистрированного пользователя, используя выражение ``Yii::$app->user->login(User::findIdentity($this->id))``. Оно возвращает экземпляр класса идентификатора, представляющего текущего пользователя, вошедшего в систему.  
 ```php
-  //Регистрация пользователя
-  public function actionRegistration() {
-    $model = new RegistrationForm();
+//Регистрация пользователя
+public function actionRegistration() {
+  $model = new RegistrationForm();
 
-    if ($model->load(Yii::$app->request->post()) && $model->registration()) { 
-        return $this->goHome();
-    } 
+  if ($model->load(Yii::$app->request->post()) && $model->registration()) { 
+    return $this->goHome();
+  } 
 
-    return $this->render('registration', compact(['model']));
-  }
+  return $this->render('registration', compact(['model']));
+}
 ```
 
 Наконец, представление.  
@@ -472,39 +471,207 @@ https://user-images.githubusercontent.com/93386515/183302230-dbb81e5a-c8ea-4f36-
 В контроллере передается экземпляр этой модели (``$model``) в представление для виджета ``ActiveForm``, который генерирует форму. В вышеприведённом коде ``ActiveForm::begin()`` не только создаёт экземпляр формы, но также и знаменует её начало. Весь контент, расположенный между ``ActiveForm::begin()`` и ``ActiveForm::end()``, будет завёрнут в HTML-тег ``<form>``. Для создания в форме элемента с меткой и любой применимой валидацией с помощью JavaScript, вызывается ``ActiveForm::field()``, который возвращает экземпляр ``yii\widgets\ActiveField``. Дополнительные HTML-элементы можно добавить к форме, используя обычный HTML или методы из класса помощника Html, как это было сделано с помощью ``Html::submitButton()``.
 
 ```php
-   <?php
-     use yii\helpers\Html;
-     use yii\bootstrap\ActiveForm;
+<?php
+  use yii\helpers\Html;
+  use yii\bootstrap\ActiveForm;
 
-     $this->title = 'Регистрация';
-     $this->params['breadcrumbs'][] = $this->title;
-   ?>
+  $this->title = 'Регистрация';
+  $this->params['breadcrumbs'][] = $this->title;
+?>
    
-   <div class = "site-registration">
-    <div class = "admin-panel_name"><?= Html::encode($this->title) ?></div><br>
+<div class = "site-registration">
+  <div class = "admin-panel_name"><?= Html::encode($this->title) ?></div><br>
 
-    <?php 
-      $form = ActiveForm::begin([
-        'id' => 'myform',
-        'method' => 'post',
-        'fieldConfig' => [
-            'template' => '{label}{input}{error}',
-        ],
-      ]);
+  <?php 
+    $form = ActiveForm::begin([
+      'id' => 'myform',
+      'method' => 'post',
+      'fieldConfig' => [
+          'template' => '{label}{input}{error}',
+      ],
+    ]);
 
-        echo $form->field($model, 'login')->textInput();
-        echo $form->field($model, 'password')->passwordInput();
-        echo $form->field($model, 'confirm_password')->passwordInput();
-        echo "<br>";
-        echo Html::submitButton("Зарегистрироваться", ['class' => 'btn btn-primary']);
-      ActiveForm::end(); 
-    ?>
-  </div>
+      echo $form->field($model, 'login')->textInput();
+      echo $form->field($model, 'password')->passwordInput();
+      echo $form->field($model, 'confirm_password')->passwordInput();
+      echo "<br>";
+      echo Html::submitButton("Зарегистрироваться", ['class' => 'btn btn-primary']);
+    ActiveForm::end(); 
+  ?>
+</div>
 ```
 
 <img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/registration.png" alt = "Регистрация" />
 
 https://user-images.githubusercontent.com/93386515/184327925-7f12653b-7680-4222-a5bb-fbefdd1f671a.mp4
+
+:bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
+
+### <p id = "authorization">Авторизация</p>
+#### <p id = "fields-and-their-filling-authorization">Поля и их заполнение</p>
+<table>
+  <tr>
+    <td><b>Поля</b></td>
+    <td><b>Обязательность заполнения</b></td>
+    <td><b>Правила заполнения</b></td>
+  </tr>
+  <tr>
+    <td>Логин</td>
+    <td>Да</td>
+    <td>Введенные данные должны совпадать с данными из таблицы.</td>
+  </tr>
+  <tr>
+    <td>Пароль</td>
+    <td>Да</td>
+    <td>Введенные данные должны совпадать с данными из таблицы.</td>
+  </tr>
+  <tr>
+    <td>Запомнить меня</td>
+    <td>Нет</td>
+    <td></td>
+  </tr>
+</table>
+
+:bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
+
+#### <p id = "layout-authorization">Верстка формы авторизации</p>
+Для того, чтобы доступ к системе имели только авторизированные пользователи, используются фильтры контроля доступа (ACF).  
+**ACF** – это фильтры, которые могут присоединяться к контроллеру или модулю как поведение.
+```php
+public function behaviors()
+{
+  return [
+    'access' => [
+      'class' => AccessControl::className(),
+      'only' => ['logout'],
+      'rules' => [
+        [
+          'actions' => ['logout'],
+          'allow' => true,
+          'roles' => ['@'],
+        ],
+      ],
+    ],
+        
+    'verbs' => [
+      'class' => VerbFilter::className(),
+      'actions' => [
+        'logout' => ['post', 'get'],
+      ],
+    ],
+  ];
+}
+```
+
+Код выше показывает ACF фильтр, связанный с контроллером ```SiteController``` через поведение. Параметр ```only``` указывает, что фильтр ACF нужно применять только к действию ```logout``` (выйти из системы). Параметр ```rules``` задает правила доступа, которые означают следующее: разрешить аутентифицированным пользователям доступ к действию ```logout```.  
+При попытке доступа к действию ```logout``` неавторизированного пользователя перенаправляет на форму авторизации, за которую отвечает метод действия ```actionLogin``` контроллера ```SiteController```. Это действие проверяет, не является ли пользователь гостем. Если условие возвращает ```false```, это значит, что пользователь авторизован и он попадает на главную страницу. Если возвращается ```true``` – создается экземпляр модели ```LoginForm```, в нее загружаются данные и вызывается метод ```login()```, который авторизует пользователя. Если данные загружены и метод ```login()``` вернул ```true```, то пользователь переносится туда, откуда он пришел. В противном случае передается модель в вид ```login```.  
+
+```php
+//Авторизация
+public function actionLogin()
+{
+  if (!Yii::$app->user->isGuest) {
+    return $this->goHome();
+  }
+
+  $model = new LoginForm();
+  if ($model->load(Yii::$app->request->post()) && $model->login()) {
+    return $this->goBack();
+  }
+
+  $model->password = '';
+  return $this->render('login', [
+    'model' => $model,
+  ]);
+}
+```
+
+Метод ```login()``` проверяет данные на соответствие правилам, описанных в модели.  Здесь вызывается метод ```validatePassword()```, который при отсутствии ошибок создает объект ```User```, вызывая метод ```getUser()```. Метод проверяет, не авторизован ли пользователь. Если не авторизован – вызывается статический метод ```findByUsername()``` с переданным ему введенным именем пользователя класса ```User```.  
+Модель ```User``` реализует интерфейс ```yii\web\IdentityInterface```. В данной моделе должно быть объявлено семь методов:
+
+<table>
+  <tr>
+    <td><b>Методы</b></td>
+    <td><b>Описание</b></td>
+  </tr>
+  <tr>
+    <td>findIdentity()</td>
+    <td>Данный метод находит экземпляр <code>identity class</code>, используя ID пользователя.</td>
+  </tr>
+  <tr>
+    <td>findIdentityByAccessToken()</td>
+    <td>Данный метод находит экземпляр <code>identity class</code>, используя токен доступа. Метод используется, когда требуется аутентифицировать пользователя только по секретному токену.</td>
+  </tr>
+  <tr>
+    <td>findByUsername()</td>
+    <td>Данный метод находит пользователя по его логину.</td>
+  </tr>
+  <tr>
+    <td>getId()</td>
+    <td>Данный метод возвращает ID пользователя, представленного данным экземпляром <code>identity</code>.</td>
+  </tr>
+  <tr>
+    <td>getAuthKey()</td>
+    <td>Данный метод возвращает ключ, используемый для основанной на cookie аутентификации. Ключ сохраняется в аутентификационной cookie и позже сравнивается с версией, находящейся на сервере, чтобы удостоверится, что аутентификационная cookie верная.</td>
+  </tr>
+  <tr>
+    <td>validateAuthKey()</td>
+    <td>Данный метод реализует логику проверки ключа для основанной на cookie аутентификации.</td>
+  </tr>
+  <tr>
+    <td>validatePassword()</td>
+    <td>Данный метод сравнивает хранящийся в базе данных пароль с тем, что ввел пользователь.</td>
+  </tr>
+</table>
+
+А так же объявляется метод ```tableName()```, который укажет, что модель ```User``` будет взаимодействовать с таблицей ```user```.
+
+```php
+namespace app\models;
+use yii\db\ActiveRecord;
+
+class User extends ActiveRecord implements \yii\web\IdentityInterface
+{
+  public static function tableName() {
+    return 'user';
+  }
+
+  public static function findIdentity($id)
+  {
+    return static::findOne($id);
+  }
+
+  public static function findIdentityByAccessToken($token, $type = null)
+  {
+
+  }
+
+  public static function findByUsername($login)
+  {
+    return static::findOne(['login' => $login]);
+  }
+
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  public function getAuthKey()
+  {
+    return $this->auth_key;
+  }
+
+  public function validateAuthKey($authKey)
+  {
+    return $this->auth_key === $authKey;
+  }
+
+  public function validatePassword($password)
+  {
+    return $this->password === md5($password);
+  }
+}
+```
 
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
     
