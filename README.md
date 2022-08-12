@@ -502,6 +502,10 @@ https://user-images.githubusercontent.com/93386515/183302230-dbb81e5a-c8ea-4f36-
   </div>
 ```
 
+<img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/registration.png" alt = "Регистрация" />
+
+https://user-images.githubusercontent.com/93386515/184327925-7f12653b-7680-4222-a5bb-fbefdd1f671a.mp4
+
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
     
 Ссылка на разработанный программный продукт: [f0635336.xsph.ru](http://f0635336.xsph.ru/)
