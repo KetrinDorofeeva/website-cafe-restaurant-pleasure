@@ -369,9 +369,14 @@ https://user-images.githubusercontent.com/93386515/183302230-dbb81e5a-c8ea-4f36-
     <td>login</td>
   </tr>
   <tr>
-    <td>targetAttribute</td>
-    <td>Сравнение введенного значения со значением из таблицы</td>
-    <td>login</td>
+    <td>match</td>
+    <td>Проверка совпадения значения с заданным условием</td>
+    <td>password</td>
+  </tr>
+  <tr>
+    <td>pattern</td>
+    <td>Регулярное выражение, с которым должно совпадать входящее значение</td>
+    <td>password</td>
   </tr>
   <tr>
     <td>compare</td>
@@ -390,19 +395,112 @@ https://user-images.githubusercontent.com/93386515/183302230-dbb81e5a-c8ea-4f36-
   </tr>
 </table>
 
+```php
+  namespace app\models;
+
+  use Yii;
+  use yii\base\Model;
+  use yii\db\ActiveRecord;
+  use app\models\User;
+
+  class RegistrationForm extends ActiveRecord {
+    public static function tableName() {
+      return 'user';
+    }
+
+    public function attributeLabels() {
+        return [
+            'login' => 'Логин',
+            'password' => 'Пароль',
+            'confirm_password' => 'Повторите пароль',
+        ];
+    }
+
+    public $confirm_password;
+
+    public function rules() {
+        return [
+            [['login', 'password', 'confirm_password'], 'required'],
+            ['login', 'unique'],
+            ['password', 'match', 'pattern' => '/^\S*(?=\S{8,12})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/', 
+              'message' => 'Пароль от 8 до 12 символов должен содержать хотя бы одну большую букву, 
+                одну маленькую букву и одну цифру'],
+            ['confirm_password', 'compare', 'compareAttribute' => 'password', 'message' => 'Пароли не совпадают'],
+        ];
+    }
+
+    public function registration() {
+        if ($this->validate()) {
+            $this->password = md5($this->password);
+            $this->role = 2;
+
+            if ($this->save(false)) {
+                if (Yii::$app->user->login(User::findIdentity($this->id), 3600 * 24 * 30)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+  }
+```
+
 Далее в контроллере ``SiteController`` было реализовано действие ``actionRegistration``.  
 **Контроллер (Controller)** – при запуске выполняет соответствующее действие, что обычно подразумевает создание соответствующих моделей и отображение необходимых представлений.  
-
 **Действие (Action)** – это метод класса контроллера, имя которого начинается на ``action``.  
-В переменной ``$model`` при помощи ``new`` реализована связь с моделью ``RegistrationForm``. Вызов ``"$model->load()"`` ищет подмассив, который имеет имя, которое должно быть у формы модели, а уже из этого правильно именованного подмассива извлекает атрибуты. Для того, чтобы получить параметры запроса, нужно использовать методы ``"Yii::$app->request->post()"`` компонента ``request``. Вызов ``"$model->registration()"`` будет расписан в модели ``RegistrationForm``. Для перенаправления на домашнюю страницу в контроллере наследнике ``\yii\base\Controller`` есть метод ``goHome()``. Данный метод позволяет успешно зарегистрированному пользователю попасть сразу на главную страницу, а именно на страницу ``/site/index`` авторизированного пользователя.  
+В переменной ``$model`` при помощи ``new`` реализована связь с моделью ``RegistrationForm``. Вызов ``$model->load()`` ищет подмассив, который имеет имя, которое должно быть у формы модели, а уже из этого правильно именованного подмассива извлекает атрибуты. Для того, чтобы получить параметры запроса, нужно использовать методы ``Yii::$app->request->post()`` компонента ``request``. Вызов ``$model->registration()`` расписан в модели ``RegistrationForm``. Для перенаправления на домашнюю страницу в контроллере наследнике ``\yii\base\Controller`` есть метод ``goHome()``. Данный метод позволяет успешно зарегистрированному пользователю попасть сразу на главную страницу, а именно на страницу ``/site/index`` авторизированного пользователя.  
 Передача введенных и автоматически прописанных данных, а именно ``login, password, confirm_password, role`` происходит при помощи метода ``render``, куда первым параметром поступает строка – название представления и информация, передаваемая представлению.  
-В модели ``RegistrationForm`` прописана функция ``registration``, в которой проверяется валидность введенных данных при помощи метода ``"$this->validate()"``. Для безопасного хранения и использования хэшированных паролей в базе данных используется ``md5``. Если данных успешно прошли проверку на валидность, определяется ``id`` зарегистрированного пользователя, используя выражение ``"Yii::$app->user->login(User::findIdentity($this->id))"``. Оно возвращает экземпляр класса идентификатора, представляющего текущего пользователя, вошедшего в систему.  
+В модели ``RegistrationForm`` прописана функция ``registration``, в которой проверяется валидность введенных данных при помощи метода ``$this->validate()``. Для безопасного хранения и использования хэшированных паролей в базе данных используется ``md5``. Если данных успешно прошли проверку на валидность, определяется ``id`` зарегистрированного пользователя, используя выражение ``Yii::$app->user->login(User::findIdentity($this->id))``. Оно возвращает экземпляр класса идентификатора, представляющего текущего пользователя, вошедшего в систему.  
+```php
+  //Регистрация пользователя
+  public function actionRegistration() {
+    $model = new RegistrationForm();
+
+    if ($model->load(Yii::$app->request->post()) && $model->registration()) { 
+        return $this->goHome();
+    } 
+
+    return $this->render('registration', compact(['model']));
+  }
+```
 
 Наконец, представление.  
 **Представление (View)** – отвечает за отображение данных модели пользователю, зашедшему на страницу сайта, реагируя на изменения модели.  
 Представление содержит в себе ту информацию, которая передается ей в контроллере. Здесь осуществляется вёрстка данной страницы, и в места, где это нужно, вставляется информация из контроллера.   
-Для создания интерактивной HTML-формы используется виджет ActiveForm. Его следует описать поподробнее.  
-В контроллере передается экземпляр этой модели (``$model``) в представление для виджета ``ActiveForm``, который генерирует форму. В вышеприведённом коде ``"ActiveForm::begin()"`` не только создаёт экземпляр формы, но также и знаменует её начало. Весь контент, расположенный между ``"ActiveForm::begin()"`` и ``"ActiveForm::end()"``, будет завёрнут в HTML-тег ``<form>``. Для создания в форме элемента с меткой и любой применимой валидацией с помощью JavaScript, вызывается ``"ActiveForm::field()"``, который возвращает экземпляр ``yii\widgets\ActiveField``. Дополнительные HTML-элементы можно добавить к форме, используя обычный HTML или методы из класса помощника Html, как это было сделано с помощью ``"Html::submitButton()"``.
+Для создания интерактивной HTML-формы используется виджет ```ActiveForm```. Его следует описать поподробнее.  
+В контроллере передается экземпляр этой модели (``$model``) в представление для виджета ``ActiveForm``, который генерирует форму. В вышеприведённом коде ``ActiveForm::begin()`` не только создаёт экземпляр формы, но также и знаменует её начало. Весь контент, расположенный между ``ActiveForm::begin()`` и ``ActiveForm::end()``, будет завёрнут в HTML-тег ``<form>``. Для создания в форме элемента с меткой и любой применимой валидацией с помощью JavaScript, вызывается ``ActiveForm::field()``, который возвращает экземпляр ``yii\widgets\ActiveField``. Дополнительные HTML-элементы можно добавить к форме, используя обычный HTML или методы из класса помощника Html, как это было сделано с помощью ``Html::submitButton()``.
+
+```php
+   <?php
+     use yii\helpers\Html;
+     use yii\bootstrap\ActiveForm;
+
+     $this->title = 'Регистрация';
+     $this->params['breadcrumbs'][] = $this->title;
+   ?>
+   
+   <div class = "site-registration">
+    <div class = "admin-panel_name"><?= Html::encode($this->title) ?></div><br>
+
+    <?php 
+      $form = ActiveForm::begin([
+        'id' => 'myform',
+        'method' => 'post',
+        'fieldConfig' => [
+            'template' => '{label}{input}{error}',
+        ],
+      ]);
+
+        echo $form->field($model, 'login')->textInput();
+        echo $form->field($model, 'password')->passwordInput();
+        echo $form->field($model, 'confirm_password')->passwordInput();
+        echo "<br>";
+        echo Html::submitButton("Зарегистрироваться", ['class' => 'btn btn-primary']);
+      ActiveForm::end(); 
+    ?>
+  </div>
+```
 
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
     
