@@ -64,7 +64,7 @@
     - Забронированные столики
     - Акции
     - Отзывы
-  - Размещение сайта на хостинге
+  - <a href = "#hosting-the-site">Размещение сайта на хостинге</a>
     
 _________________________________________________________________________________________________________________________________________________________________
 ## <p id = "technical-specification">Техническое задание</p>
@@ -676,6 +676,70 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
 <img src="https://github.com/ketrindorofeeva/website-cafe-restaurant-pleasure/raw/main/for-readme/authorization.png" alt = "Авторизация" />
 
 https://user-images.githubusercontent.com/93386515/184353387-4c1823c7-7914-4bd0-9e1f-ad70175bd229.mp4
+
+:bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
+
+### <p id = "hosting-the-site">Размещение сайта на хостинге</p>
+Хостинг – это комплекс услуг, которые позволяют разместить сайт или другие данные в сети Интернет. Обычно под фразой "хостинг для сайта" подразумевают место и мощности на сервере (специальном компьютере с круглосуточным подключением к сети). Таблица сравнений популярных хостинг-компаний за май 2022 года (Данные были взяты с сайтов https://ru.hostings.info и https://hostinghub.ru):
+
+<table>
+  <tr>
+    <td><b>Хостинг</b></td>
+    <td><b>Оценка</b></td>
+    <td><b>Количество клиентов</b></td>
+    <td><b>Стоимость от, р.</b></td>
+    <td><b>Поддержка</b></td>
+    <td><b>Тестовый период, дн.</b></td>
+  </tr>
+  <tr>
+    <td>timeweb</td>
+    <td>9.5/10</td>
+    <td>210000</td>
+    <td>179</td>
+    <td>PHP, Python, HTTP/2, Memcached</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>спринт ХОСТ</td>
+    <td>9.5/10</td>
+    <td>358669</td>
+    <td>133</td>
+    <td>PHP, Python, Node.js, HTTP/2, Memcached, Perl, Sphinx</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>Beget</td>
+    <td>9.3/10</td>
+    <td>165000</td>
+    <td>169</td>
+    <td>PHP, Python, HTTP/2, Memcached, Redis, Perl, Sphinx</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>FORNEX</td>
+    <td>9.0/10</td>
+    <td>110000</td>
+    <td>75</td>
+    <td>PHP, Python, Node.js, Memcached, Ruby</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>REG.RU</td>
+    <td>9.0/10</td>
+    <td>2200000</td>
+    <td>152</td>
+    <td>PHP, Python, HTTP/2, Perl</td>
+    <td>14</td>
+  </tr>
+</table>
+
+Для размещения проекта на сервере был выбран хостинг-провайдер Beget по следующим причинам: долгий пробный период, оперативная деятельность технической поддержки, стабильная и быстрая работа расположенных на нем сайтов.  
+Загрузка проекта на сервер состоит из следующих этапов:
+1)	Выбор хостинга;
+2)	Выбор и регистрация домена;
+3)	Загрузка сайта на хостинг:  
+  3.1. Добавление архива, который содержит в себе все файлы сайта;  
+  3.2. Импорт SQL-файла в PhpMyAdmin.
 
 :bookmark_tabs: <a href = "#table-of-contents">Оглавление</a>
     
