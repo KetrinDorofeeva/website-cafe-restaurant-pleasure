@@ -9,16 +9,16 @@
   </tr>
   
    <tr>
-    <td><img src = "https://img.shields.io/badge/-HTML-orange?style=for-the-badge&logo=HTML5&labelColor=FFF6E8" alt = "HTML"></td>
-     <td><img src = "https://img.shields.io/badge/-PHP-777BB4?style=for-the-badge&logo=PHP&labelColor=F0F1FA&logoColor=777BB4" alt = "PHP"></td>
-     <td><img src = "https://img.shields.io/badge/-Yii-blue?style=for-the-badge&logo=Framework7&labelColor=F8F8FF&logoColor=blue" alt = "Yii2"></td>
-     <td><img src = "https://img.shields.io/badge/-MySQL-4479A1?style=for-the-badge&logo=MySQL&labelColor=EFF8FF&logoColor=4479A1" alt = "MySQL"></td>
+    <td><img src = "https://img.shields.io/badge/-HTML-e44d25?style=for-the-badge&logo=HTML5&labelColor=fcede9&logoColor=e44d25" alt = "HTML"></td>
+     <td><img src = "https://img.shields.io/badge/-PHP-787cb4?style=for-the-badge&logo=PHP&labelColor=f2f2f8&logoColor=787cb4" alt = "PHP"></td>
+     <td><img src = "https://img.shields.io/badge/-Yii-0083cb?style=for-the-badge&logo=Framework7&labelColor=e6f3fa&logoColor=0083cb" alt = "Yii2"></td>
+     <td><img src = "https://img.shields.io/badge/-MySQL-007690?style=for-the-badge&logo=MySQL&labelColor=e6f1f4&logoColor=007690" alt = "MySQL"></td>
   </tr>
   
    <tr>
-    <td><img src = "https://img.shields.io/badge/-CSS-1572B5?style=for-the-badge&logo=CSS3&labelColor=EAEBFE&logoColor=1572B5" alt = "CSS"></td>
-    <td><img src = "https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&labelColor=FFFDF1&logoColor=F7DF1E" alt = "JavaScript"></td>
-    <td><img src = "https://img.shields.io/badge/-Bootstrap-800080?style=for-the-badge&logo=Bootstrap&labelColor=F4E7F4&logoColor=800080" alt = "Bootstrap4"></td>
+    <td><img src = "https://img.shields.io/badge/-CSS-214ce5?style=for-the-badge&logo=CSS3&labelColor=e9edfc&logoColor=214ce5" alt = "CSS"></td>
+    <td><img src = "https://img.shields.io/badge/-JavaScript-f7df1e?style=for-the-badge&logo=JavaScript&labelColor=fefce9&logoColor=f7df1e" alt = "JavaScript"></td>
+    <td><img src = "https://img.shields.io/badge/-Bootstrap-860afb?style=for-the-badge&logo=Bootstrap&labelColor=f3e7ff&logoColor=860afb" alt = "Bootstrap4"></td>
     <td></td>
   </tr>
 </table>
